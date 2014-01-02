@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    175286,       3756]
-NotebookOptionsPosition[    173202,       3685]
-NotebookOutlinePosition[    173539,       3700]
-CellTagsIndexPosition[    173496,       3697]
+NotebookDataLength[    184875,       4008]
+NotebookOptionsPosition[    182790,       3937]
+NotebookOutlinePosition[    183127,       3952]
+CellTagsIndexPosition[    183084,       3949]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -328,7 +328,10 @@ Cell[BoxData[
    3.579447813926661*^9, 3.5794478149606*^9}, {3.581245788736004*^9, 
    3.581245790077526*^9}, {3.5813100779591618`*^9, 3.58131007851935*^9}, {
    3.581312757513378*^9, 3.581312758008493*^9}, {3.581668695043944*^9, 
-   3.5816686955398273`*^9}, {3.581668804948368*^9, 3.58166880537541*^9}}]
+   3.5816686955398273`*^9}, {3.581668804948368*^9, 3.58166880537541*^9}, {
+   3.585470498000228*^9, 3.585470498565301*^9}, {3.585479816163066*^9, 
+   3.585479816703768*^9}, {3.585480348675612*^9, 3.585480349269107*^9}, {
+   3.585556945742117*^9, 3.585556946933957*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -424,11 +427,14 @@ Cell[BoxData[
   RowBox[{"BerryEsseenBound", "[", 
    RowBox[{"k", ",", 
     RowBox[{"NoncentralChiSquareDistribution", "[", 
-     RowBox[{"1", ",", "s"}], "]"}]}], "]"}]}]], "Input",
+     RowBox[{"1", ",", 
+      FractionBox["s", "k"]}], "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{
   3.577095356493215*^9, {3.5770966306794233`*^9, 3.577096646411861*^9}, {
    3.577096900303865*^9, 3.577096901806971*^9}, {3.577096972944604*^9, 
-   3.57709697350935*^9}, {3.579412187016799*^9, 3.579412191192872*^9}}],
+   3.57709697350935*^9}, {3.579412187016799*^9, 3.579412191192872*^9}, {
+   3.585465994465232*^9, 3.585465994799691*^9}, {3.5854660792827663`*^9, 
+   3.585466079391019*^9}, {3.585469024563409*^9, 3.5854690249302588`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -497,19 +503,7 @@ Cell[BoxData[
       RowBox[{"DistributedContexts", "\[Rule]", "All"}], ",", 
       RowBox[{"Method", "\[Rule]", "\"\<FinestGrained\>\""}]}], "]"}], 
     "}"}]}], ";"}]], "Input",
- CellChangeTimes->{3.5751101990540953`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"errorData", "=", 
-   RowBox[{"{", 
-    RowBox[{
-    "absoluteError", ",", "berryEsseenBound", ",", "asymptoticBound"}], 
-    "}"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.574245591008263*^9, 3.574245604333014*^9}, {
-  3.574252693391881*^9, 3.574252693491226*^9}, {3.574964866500839*^9, 
-  3.574964915731209*^9}, {3.575024260637371*^9, 3.575024261565426*^9}, {
-  3.575110064189831*^9, 3.57511006434836*^9}}]
+ CellChangeTimes->{3.5751101990540953`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -578,17 +572,28 @@ Cell[BoxData[
    RowBox[{"Flatten", "[", 
     RowBox[{"{", 
      RowBox[{
-      RowBox[{"Directive", "[", 
-       RowBox[{"Black", ",", "Dashed"}], "]"}], ",", 
-      RowBox[{"Directive", "[", 
-       RowBox[{"Black", ",", "Dotted"}], "]"}], ",", 
-      RowBox[{"Directive", "[", 
-       RowBox[{"Black", ",", "DotDashed"}], "]"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Directive", "[", 
+            RowBox[{"Black", ",", "Dashed"}], "]"}], ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Black", ",", "Dotted"}], "]"}], ",", 
+           RowBox[{"Directive", "[", 
+            RowBox[{"Black", ",", "DotDashed"}], "]"}]}], "}"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ";;", 
+           RowBox[{"Length", "[", "sValues", "]"}]}], "]"}], "]"}], ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}], ",", 
       RowBox[{"Table", "[", 
        RowBox[{"Black", ",", 
         RowBox[{"{", 
-         RowBox[{"Length", "[", "errorData", "]"}], "}"}]}], "]"}], ",", 
-      "Black"}], "}"}], "]"}]}], ";"}]], "Input",
+         RowBox[{
+          RowBox[{"2", 
+           RowBox[{"Length", "[", "sValues", "]"}]}], "+", "1"}], "}"}]}], 
+       "]"}]}], "}"}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.5739286757603817`*^9, 3.573928678549787*^9}, {
    3.573928884675948*^9, 3.573928894150395*^9}, {3.5739289556194963`*^9, 
    3.5739290430495453`*^9}, 3.57424563105129*^9, {3.574245921877584*^9, 
@@ -596,7 +601,11 @@ Cell[BoxData[
    3.576901774281762*^9}, 3.57941313263923*^9, {3.580722102971717*^9, 
    3.580722103615583*^9}, {3.580722178011701*^9, 3.580722204013835*^9}, {
    3.5807222653251553`*^9, 3.580722342746971*^9}, {3.580723398764266*^9, 
-   3.580723432935368*^9}, {3.580723465871045*^9, 3.5807234692506123`*^9}}],
+   3.580723432935368*^9}, {3.580723465871045*^9, 3.5807234692506123`*^9}, {
+   3.58546367385573*^9, 3.585463681968115*^9}, {3.585469585207303*^9, 
+   3.5854695921896963`*^9}, 3.585480017844372*^9, {3.585480069622909*^9, 
+   3.5854800726053467`*^9}, 3.585480148106023*^9, {3.5854801832108707`*^9, 
+   3.58548020524232*^9}, {3.585480516779194*^9, 3.5854805227776814`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -611,16 +620,22 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{
   RowBox[{"plotMarkers", "=", 
-   RowBox[{"{", 
-    RowBox[{"NoMarker", ",", "NoMarker", ",", "NoMarker", ",", 
-     RowBox[{"SolidPlusMarker", "[", 
-      RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
-     RowBox[{"SolidCrossMarker", "[", 
-      RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
-     RowBox[{"SolidStarMarker", "[", 
-      RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
-     RowBox[{"HollowCircleMarker", "[", 
-      RowBox[{"Black", ",", "plotMarkerSize"}], "]"}]}], "}"}]}], 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{"NoMarker", ",", 
+        RowBox[{"{", 
+         RowBox[{"2", 
+          RowBox[{"Length", "[", "sValues", "]"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"SolidPlusMarker", "[", 
+       RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
+      RowBox[{"SolidCrossMarker", "[", 
+       RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
+      RowBox[{"SolidStarMarker", "[", 
+       RowBox[{"Black", ",", "plotMarkerSize"}], "]"}], ",", 
+      RowBox[{"HollowCircleMarker", "[", 
+       RowBox[{"Black", ",", "plotMarkerSize"}], "]"}]}], "}"}], "]"}]}], 
   ";"}]], "Input",
  CellChangeTimes->{{3.573928683571383*^9, 3.573928688469851*^9}, {
    3.573929055924159*^9, 3.573929112903565*^9}, {3.5739291818986*^9, 
@@ -640,7 +655,31 @@ Cell[BoxData[
    3.5807288624018183`*^9, 3.5807288772178717`*^9}, {3.5807289132834463`*^9, 
    3.580729082689238*^9}, {3.580729164865597*^9, 3.580729199207987*^9}, {
    3.580729264474243*^9, 3.580729283397685*^9}, {3.5807293207072287`*^9, 
-   3.5807293252801313`*^9}}],
+   3.5807293252801313`*^9}, {3.5854637054714603`*^9, 
+   3.5854637055714417`*^9}, {3.5854698211896477`*^9, 3.585469823426866*^9}, {
+   3.585479340807783*^9, 3.585479341688302*^9}, {3.585479647448546*^9, 
+   3.585479711672275*^9}, 3.585480252902776*^9, {3.5854802962758713`*^9, 
+   3.585480308391859*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"joined", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{"True", ",", 
+        RowBox[{"{", 
+         RowBox[{"2", 
+          RowBox[{"Length", "[", "sValues", "]"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{"False", ",", 
+        RowBox[{"{", 
+         RowBox[{"Length", "[", "sValues", "]"}], "}"}]}], "]"}], ",", 
+      "True"}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.585479602418537*^9, 3.5854796054098043`*^9}, {
+  3.585479723410445*^9, 3.585479742232431*^9}, {3.58547998242166*^9, 
+  3.5854800076833897`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -703,7 +742,8 @@ Cell[BoxData[
           RowBox[{"Graphics", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"Black", ",", 
+             RowBox[{
+              RowBox[{"Directive", "[", "Black", "]"}], ",", 
               RowBox[{"Line", "[", 
                RowBox[{"{", 
                 RowBox[{
@@ -722,7 +762,8 @@ Cell[BoxData[
           RowBox[{"Graphics", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"Black", ",", 
+             RowBox[{
+              RowBox[{"Directive", "[", "Black", "]"}], ",", 
               RowBox[{"Line", "[", 
                RowBox[{"{", 
                 RowBox[{
@@ -741,7 +782,8 @@ Cell[BoxData[
           RowBox[{"Graphics", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"Black", ",", 
+             RowBox[{
+              RowBox[{"Directive", "[", "Black", "]"}], ",", 
               RowBox[{"Line", "[", 
                RowBox[{"{", 
                 RowBox[{
@@ -784,10 +826,10 @@ Cell[BoxData[
              RowBox[{"\"\<A\>\"", ",", "\"\<Z\>\""}], "]"}], "[", 
             RowBox[{"[", 
              RowBox[{"1", ";;", 
-              RowBox[{"Length", "[", 
-               RowBox[{"Flatten", "[", 
-                RowBox[{"errorData", ",", "1"}], "]"}], "]"}]}], "]"}], 
-            "]"}]}], ",", 
+              RowBox[{
+               RowBox[{"2", 
+                RowBox[{"Length", "[", "sValues", "]"}]}], "+", "1"}]}], 
+             "]"}], "]"}]}], ",", 
           RowBox[{"Flatten", "[", 
            RowBox[{
             RowBox[{"{", 
@@ -806,26 +848,16 @@ Cell[BoxData[
                      ",", "True", ",", "\"\<\>\""}], "]"}], "<>", 
                   RowBox[{"ToString", "[", 
                    RowBox[{"N", "[", 
-                    RowBox[{
-                    RowBox[{"sValues", "[", 
-                    RowBox[{"[", "j", "]"}], "]"}], ",", "2"}], "]"}], "]"}], 
-                  "<>", 
+                    RowBox[{"s", ",", "2"}], "]"}], "]"}], "<>", 
                   RowBox[{"Which", "[", 
                    RowBox[{
                     RowBox[{"i", "\[Equal]", "1"}], ",", "\"\<)\>\"", ",", 
                     RowBox[{"i", "\[Equal]", "2"}], ",", "\"\<)\>\"", ",", 
                     "True", ",", "\"\<\>\""}], "]"}]}], ",", 
                  RowBox[{"{", 
-                  RowBox[{"i", ",", 
-                   RowBox[{
-                    RowBox[{"Length", "[", "errorData", "]"}], "-", "1"}]}], 
-                  "}"}], ",", 
+                  RowBox[{"i", ",", "2"}], "}"}], ",", 
                  RowBox[{"{", 
-                  RowBox[{"j", ",", 
-                   RowBox[{"Length", "[", 
-                    RowBox[{"errorData", "[", 
-                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], 
-               "]"}], ",", 
+                  RowBox[{"s", ",", "sValues"}], "}"}]}], "]"}], "]"}], ",", 
               "\"\<\!\(\*SubscriptBox[\(\[Epsilon]\), \(\[Infinity]\)]\)(k)\>\
 \""}], "}"}], ",", "1"}], "]"}]}], "]"}]}], "}"}], "]"}], ",", 
      RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}]}], ";"}]], "Input",
@@ -849,7 +881,13 @@ Cell[BoxData[
    3.580729936367028*^9, 3.5807299554881907`*^9}, {3.580729995035809*^9, 
    3.580730114757263*^9}, {3.580730150397111*^9, 3.5807302663986597`*^9}, {
    3.580730583067683*^9, 3.580730583450531*^9}, {3.580730694508835*^9, 
-   3.580730694592609*^9}, {3.5807344587534037`*^9, 3.580734463482263*^9}}],
+   3.580730694592609*^9}, {3.5807344587534037`*^9, 3.580734463482263*^9}, {
+   3.5854637239391203`*^9, 3.5854637405644207`*^9}, {3.585469034316444*^9, 
+   3.585469037283599*^9}, 3.585479367702572*^9, {3.585479418755*^9, 
+   3.5854794695988083`*^9}, 3.585479508641344*^9, {3.585479838065567*^9, 
+   3.58547984130444*^9}, {3.5854799440867357`*^9, 3.585479960598443*^9}, {
+   3.5854802665043592`*^9, 3.585480271544697*^9}, {3.585480503391938*^9, 
+   3.5854805056729803`*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -891,8 +929,12 @@ Cell[BoxData[{
  RowBox[{"ListLogLogPlot", "[", 
   RowBox[{
    RowBox[{"Flatten", "[", 
-    RowBox[{"errorData", ",", "1"}], "]"}], ",", 
-   RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "absoluteError", ",", "berryEsseenBound", ",", "berryEsseenBound", ",", 
+       "asymptoticBound"}], "}"}], ",", "1"}], "]"}], ",", 
+   RowBox[{"Joined", "\[Rule]", "joined"}], ",", 
    RowBox[{"PlotStyle", "\[Rule]", "plotStyles"}], ",", 
    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
    RowBox[{"FrameLabel", "\[Rule]", "frameLabel"}], ",", 
@@ -903,7 +945,9 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{
       RowBox[{"{", 
-       RowBox[{"2", ",", "All"}], "}"}], ",", "All"}], "}"}]}], ",", 
+       RowBox[{"2", ",", "All"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"All", ",", "1"}], "}"}]}], "}"}]}], ",", 
    RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"If", "[", 
@@ -932,13 +976,18 @@ Cell[BoxData[{
    3.580726402804059*^9}, {3.5807264412217712`*^9, 3.580726449861083*^9}, {
    3.580726669908408*^9, 3.580726681407631*^9}, {3.580726716211622*^9, 
    3.5807267165807467`*^9}, {3.580726776211802*^9, 3.580726800772586*^9}, {
-   3.58072816925336*^9, 3.580728169379292*^9}}],
+   3.58072816925336*^9, 3.580728169379292*^9}, {3.585470575097032*^9, 
+   3.585470580471476*^9}, {3.5854795409256687`*^9, 3.585479543883003*^9}, {
+   3.5854795966209373`*^9, 3.585479597165071*^9}, {3.585479749642186*^9, 
+   3.5854797520236683`*^9}, {3.585479783775198*^9, 3.585479784540121*^9}, {
+   3.5854801272133017`*^9, 3.585480141408193*^9}, {3.585480212558077*^9, 
+   3.5854802165353518`*^9}}],
 
 Cell[BoxData[
  TagBox[
   GraphicsBox[{InsetBox[
      GraphicsBox[{{GraphicsComplexBox[CompressedData["
-1:eJxTTMoPSmViYGBwA2IQ/d7y1z8nvWf2B9afkLlc8nc/hP/NftpJ1dqIB0wH
+1:eJxTTMoPSmViYGBoAmIQ/d7y1z8nvWf2B9afkLlc8nc/hP/NftpJ1dqIB0wH
 mBS0fnGv/mOfcdKXT7aR5YBY6NbdG7OZHMReun+c2Md2AKKezcHrhkbjwkKO
 A7xFRtaXm3gdPv3b2M0oxwNVL+Qg6s4fZHaS/8DGH30vJRxEHH5ybFj55pzA
 gSMi5ZUKn8QdWA2zP/CvEDqw4H//zK6F0g5N70JnXKwXOQBzH7emvFryRoYD
@@ -948,13 +997,13 @@ MP/pLabNDnefcu/9P3Yb2eHu+37GwmTCDA64+1g3fRfi3sgJdx8vp7W1ZD3C
 fV8cg9YuuI9w3zJdkTuvLyPcl3emrP8zkvvWmnj3fUdyX4nWR05/phPw+J2S
 /tNxq/jD/TD3LfPVtK2b8nw/zH0Xrmfuunrg/X6Y+w5dqFT4s+jzfpj7HnBs
 iun5/ms/zH31CqU+fGqMcPdJHfGrKv3FBHef7gMzrto1bHD3cZ7213oezQV3
-n1ihmMKPv3fh7msK7eiXFXsFd98p2RjXYs8PcPfdT/rDPD/+C9x9O90d3Q2U
-fsDdd72+svlA2X+4+37dvhG/IpUZ7r5p9Zt6+a1Y4e5bOXuWrPgbDrj7Wts2
-2zbO5oG775Bttesqlqdw98Xq1jx6yvsB7r5UBZEEL5/PcPdVpW6RK0v6Dndf
-iNfPRHbV33D3WR6UOH/ahhEevx53Td4KP2eBu+9JA5909W42uPu+z/m2qimX
-C+6+y+38p9/I8MHdZ7wxf/1HZUT+KPzhx7/rJSL/fv0o5femA5F/G0SydZmm
-IPLHmzbe816liPzxe5Hm20nyiPTHtd+V+zZS/g3e2C+jiJQ/Yvc3P1FBSn+n
-TSZ8uQlMfwCx6Bdg
+n6JIeMZr6etw9zH5PZnhc/8x3H3/XvjqHHJ6CXefBHNOu5vHB7j7pBO9lcSv
+INx3997NJb6Mv+HuOyZeIvUKyX2J925tOI/kvtNfcxd0I7lvmdjH+pdI7mOe
+rF58kvUx3H2CbCf4cvVew91X8DTcdcvy93D3LermuSa9/BPcfRWmB+7KZ32F
+u4/x9SQHrg6E+y4K7td6YoZwX8eCa5u+MTLD3bcv283g0lqE+677uf2Qj+Ea
+jd8REr/GG/PXf1RGlH+FP/z4d71ElM9fP0r5velAlM8NItm6TFMQ5d+bNt7z
+XqWI8u/3Is23k+QR5QvXflfu20jlc/DGfhlFpPIvdn/zExWk8uW0yYQvN0fL
+l2Gf/gB8TvBJ
          "], {{{}, {}, 
            {GrayLevel[0], Dashing[{Small, Small}], 
             LineBox[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}]}, 
@@ -967,9 +1016,9 @@ TSZ8uQlMfwCx6Bdg
            {GrayLevel[0], 
             LineBox[{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}]}, 
            {GrayLevel[0], 
-            LineBox[{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}]}, 
+            LineBox[{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}]}, {}, {}, {}, 
            {GrayLevel[0], 
-            LineBox[{61, 62, 63, 64, 65, 66, 67, 68, 69, 70}]}}, {
+            LineBox[{91, 92, 93, 94, 95, 96, 97, 98, 99, 100}]}}, {
            {GrayLevel[0], Dashing[{Small, Small}], InsetBox[
              GraphicsBox[
               {GrayLevel[0], Dashing[{Small, Small}]}], 1], InsetBox[
@@ -1044,14 +1093,68 @@ TSZ8uQlMfwCx6Bdg
               {GrayLevel[0], Dashing[{0, Small, Small, Small}]}], 30]}, 
            {GrayLevel[0], InsetBox[
              GraphicsBox[
-              {GrayLevel[0], 
-               LineBox[
-                NCache[{{Rational[1, 2], 0}, {Rational[1, 2], 1}}, {{
-                  0.5, 0}, {0.5, 1}}]], 
-               LineBox[
-                NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
-                  0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 31], InsetBox[
+              {GrayLevel[0]}], 31], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 32], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 33], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 34], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 35], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 36], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 37], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 38], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 39], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 40]}, 
+           {GrayLevel[0], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 41], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 42], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 43], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 44], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 45], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 46], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 47], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 48], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 49], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 50]}, 
+           {GrayLevel[0], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 51], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 52], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 53], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 54], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 55], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 56], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 57], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 58], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 59], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0]}], 60]}, 
+           {GrayLevel[0], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1060,7 +1163,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 32], InsetBox[
+              ImageSize->8], 101], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1069,7 +1172,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 33], InsetBox[
+              ImageSize->8], 102], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1078,7 +1181,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 34], InsetBox[
+              ImageSize->8], 103], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1087,7 +1190,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 35], InsetBox[
+              ImageSize->8], 104], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1096,7 +1199,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 36], InsetBox[
+              ImageSize->8], 105], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1105,7 +1208,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 37], InsetBox[
+              ImageSize->8], 106], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1114,7 +1217,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 38], InsetBox[
+              ImageSize->8], 107], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1123,7 +1226,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 39], InsetBox[
+              ImageSize->8], 108], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1132,7 +1235,16 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 40]}, 
+              ImageSize->8], 109], InsetBox[
+             GraphicsBox[
+              {GrayLevel[0], 
+               LineBox[
+                NCache[{{Rational[1, 2], 0}, {Rational[1, 2], 1}}, {{
+                  0.5, 0}, {0.5, 1}}]], 
+               LineBox[
+                NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
+                  0, 0.5}, {1, 0.5}}]]},
+              ImageSize->8], 110]}, 
            {GrayLevel[0], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
@@ -1152,7 +1264,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 41], InsetBox[
+              ImageSize->8], 111], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1171,7 +1283,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 42], InsetBox[
+              ImageSize->8], 112], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1190,7 +1302,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 43], InsetBox[
+              ImageSize->8], 113], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1209,7 +1321,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 44], InsetBox[
+              ImageSize->8], 114], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1228,7 +1340,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 45], InsetBox[
+              ImageSize->8], 115], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1247,7 +1359,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 46], InsetBox[
+              ImageSize->8], 116], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1266,7 +1378,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 47], InsetBox[
+              ImageSize->8], 117], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1285,7 +1397,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 48], InsetBox[
+              ImageSize->8], 118], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1304,7 +1416,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 49], InsetBox[
+              ImageSize->8], 119], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1323,7 +1435,7 @@ TSZ8uQlMfwCx6Bdg
                    Rational[1, 4] (2 - 2^Rational[1, 2])}}, {{
                  0.1464466094067262, 0.8535533905932737}, {0.8535533905932737,
                   0.1464466094067262}}]]},
-              ImageSize->8], 50]}, 
+              ImageSize->8], 120]}, 
            {GrayLevel[0], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
@@ -1349,7 +1461,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 51], InsetBox[
+              ImageSize->8], 121], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1374,7 +1486,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 52], InsetBox[
+              ImageSize->8], 122], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1399,7 +1511,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 53], InsetBox[
+              ImageSize->8], 123], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1424,7 +1536,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 54], InsetBox[
+              ImageSize->8], 124], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1449,7 +1561,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 55], InsetBox[
+              ImageSize->8], 125], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1474,7 +1586,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 56], InsetBox[
+              ImageSize->8], 126], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1499,7 +1611,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 57], InsetBox[
+              ImageSize->8], 127], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1524,7 +1636,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 58], InsetBox[
+              ImageSize->8], 128], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1549,7 +1661,7 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 59], InsetBox[
+              ImageSize->8], 129], InsetBox[
              GraphicsBox[
               {GrayLevel[0], 
                LineBox[
@@ -1574,38 +1686,38 @@ TSZ8uQlMfwCx6Bdg
                LineBox[
                 NCache[{{0, Rational[1, 2]}, {1, Rational[1, 2]}}, {{
                   0, 0.5}, {1, 0.5}}]]},
-              ImageSize->8], 60]}, 
+              ImageSize->8], 130]}, 
            {GrayLevel[0], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 61], InsetBox[
+              ImageSize->8], 91], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 62], InsetBox[
+              ImageSize->8], 92], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 63], InsetBox[
+              ImageSize->8], 93], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 64], InsetBox[
+              ImageSize->8], 94], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 65], InsetBox[
+              ImageSize->8], 95], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 66], InsetBox[
+              ImageSize->8], 96], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 67], InsetBox[
+              ImageSize->8], 97], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 68], InsetBox[
+              ImageSize->8], 98], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 69], InsetBox[
+              ImageSize->8], 99], InsetBox[
              GraphicsBox[
               {GrayLevel[0], CircleBox[{0, 0}]},
-              ImageSize->8], 70]}, {}}}], {}}, {}},
+              ImageSize->8], 100]}, {}}}], {}}, {}},
       AspectRatio->Full,
       Axes->True,
       AxesOrigin->{0.6931471805599453, -5.1249677880670506`},
@@ -1859,11 +1971,11 @@ TSZ8uQlMfwCx6Bdg
       Method->{},
       PlotLabel->None,
       PlotRange->{{0.6931471805599453, 
-       6.907755278982137}, {-5.1249677880670506`, -0.1875704573197542}},
+       6.907755278982137}, {-5.1249677880670506`, 0.}},
       PlotRangeClipping->True,
       PlotRangePadding->{{None, 
-         Scaled[0.02]}, 
-        Scaled[0.02]},
+         Scaled[0.02]}, {
+         Scaled[0.02], None}},
       Ticks->{{{0., 
           FormBox["1", TraditionalForm]}, {1.6094379124341003`, 
           FormBox["5", TraditionalForm]}, {2.302585092994046, 
@@ -2024,7 +2136,6 @@ TSZ8uQlMfwCx6Bdg
          GraphicsBox[
           {GrayLevel[0], Dashing[{0, Small, Small, Small}], 
            LineBox[{{0, 0}, {10, 0}}]},
-          
           ImageSize->
            24], "\<\"\\!\\(\\*SubscriptBox[\\(\[Epsilon]\\), \
 \\(max\\)]\\)(k,10.)\"\>"},
@@ -2366,8 +2477,8 @@ TSZ8uQlMfwCx6Bdg
    PlotRange->Automatic,
    PlotRangeClipping->False,
    PlotRangePadding->{{None, 
-      Scaled[0.02]}, 
-     Scaled[0.02]},
+      Scaled[0.02]}, {
+      Scaled[0.02], None}},
    Ticks->{{{0., 
        FormBox["1", TraditionalForm]}, {1.6094379124341003`, 
        FormBox["5", TraditionalForm]}, {2.302585092994046, 
@@ -2507,7 +2618,7 @@ TSZ8uQlMfwCx6Bdg
   InterpretTemplate[Legended[
     Graphics[{
       GraphicsComplex[CompressedData["
-1:eJxTTMoPSmViYGBwA2IQ/d7y1z8nvWf2B9afkLlc8nc/hP/NftpJ1dqIB0wH
+1:eJxTTMoPSmViYGBoAmIQ/d7y1z8nvWf2B9afkLlc8nc/hP/NftpJ1dqIB0wH
 mBS0fnGv/mOfcdKXT7aR5YBY6NbdG7OZHMReun+c2Md2AKKezcHrhkbjwkKO
 A7xFRtaXm3gdPv3b2M0oxwNVL+Qg6s4fZHaS/8DGH30vJRxEHH5ybFj55pzA
 gSMi5ZUKn8QdWA2zP/CvEDqw4H//zK6F0g5N70JnXKwXOQBzH7emvFryRoYD
@@ -2517,13 +2628,13 @@ MP/pLabNDnefcu/9P3Yb2eHu+37GwmTCDA64+1g3fRfi3sgJdx8vp7W1ZD3C
 fV8cg9YuuI9w3zJdkTuvLyPcl3emrP8zkvvWmnj3fUdyX4nWR05/phPw+J2S
 /tNxq/jD/TD3LfPVtK2b8nw/zH0Xrmfuunrg/X6Y+w5dqFT4s+jzfpj7HnBs
 iun5/ms/zH31CqU+fGqMcPdJHfGrKv3FBHef7gMzrto1bHD3cZ7213oezQV3
-n1ihmMKPv3fh7msK7eiXFXsFd98p2RjXYs8PcPfdT/rDPD/+C9x9O90d3Q2U
-fsDdd72+svlA2X+4+37dvhG/IpUZ7r5p9Zt6+a1Y4e5bOXuWrPgbDrj7Wts2
-2zbO5oG775Bttesqlqdw98Xq1jx6yvsB7r5UBZEEL5/PcPdVpW6RK0v6Dndf
-iNfPRHbV33D3WR6UOH/ahhEevx53Td4KP2eBu+9JA5909W42uPu+z/m2qimX
-C+6+y+38p9/I8MHdZ7wxf/1HZUT+KPzhx7/rJSL/fv0o5femA5F/G0SydZmm
-IPLHmzbe816liPzxe5Hm20nyiPTHtd+V+zZS/g3e2C+jiJQ/Yvc3P1FBSn+n
-TSZ8uQlMfwCx6Bdg
+n6JIeMZr6etw9zH5PZnhc/8x3H3/XvjqHHJ6CXefBHNOu5vHB7j7pBO9lcSv
+INx3997NJb6Mv+HuOyZeIvUKyX2J925tOI/kvtNfcxd0I7lvmdjH+pdI7mOe
+rF58kvUx3H2CbCf4cvVew91X8DTcdcvy93D3LermuSa9/BPcfRWmB+7KZ32F
+u4/x9SQHrg6E+y4K7td6YoZwX8eCa5u+MTLD3bcv283g0lqE+677uf2Qj+Ea
+jd8REr/GG/PXf1RGlH+FP/z4d71ElM9fP0r5velAlM8NItm6TFMQ5d+bNt7z
+XqWI8u/3Is23k+QR5QvXflfu20jlc/DGfhlFpPIvdn/zExWk8uW0yYQvN0fL
+l2Gf/gB8TvBJ
        "], {{{}, {}, {
           Hue[0.67, 0.6, 0.6], 
           Directive[
@@ -2548,10 +2659,10 @@ TSZ8uQlMfwCx6Bdg
           Line[{41, 42, 43, 44, 45, 46, 47, 48, 49, 50}]}, {
           Hue[0.8503398874989481, 0.6, 0.6], 
           GrayLevel[0], 
-          Line[{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}]}, {
-          Hue[0.08640786499873876, 0.6, 0.6], 
+          Line[{51, 52, 53, 54, 55, 56, 57, 58, 59, 60}]}, {}, {}, {}, {
+          Hue[0.7946117974981064, 0.6, 0.6], 
           GrayLevel[0], 
-          Line[{61, 62, 63, 64, 65, 66, 67, 68, 69, 70}]}}, {{
+          Line[{91, 92, 93, 94, 95, 96, 97, 98, 99, 100}]}}, {{
           Hue[0.67, 0.6, 0.6], 
           Directive[
            GrayLevel[0], 
@@ -2749,280 +2860,406 @@ TSZ8uQlMfwCx6Bdg
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 31], 
+             GrayLevel[0]}], 31], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 32], 
+             GrayLevel[0]}], 32], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 33], 
+             GrayLevel[0]}], 33], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 34], 
+             GrayLevel[0]}], 34], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 35], 
+             GrayLevel[0]}], 35], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 36], 
+             GrayLevel[0]}], 36], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 37], 
+             GrayLevel[0]}], 37], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 38], 
+             GrayLevel[0]}], 38], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 39], 
+             GrayLevel[0]}], 39], 
           Inset[
            Graphics[{
              Hue[0.37820393249936934`, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 40]}, {
+             GrayLevel[0]}], 40]}, {
           Hue[0.6142719099991583, 0.6, 0.6], 
           GrayLevel[0], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           41], 
+             GrayLevel[0]}], 41], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           42], 
+             GrayLevel[0]}], 42], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           43], 
+             GrayLevel[0]}], 43], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           44], 
+             GrayLevel[0]}], 44], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           45], 
+             GrayLevel[0]}], 45], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           46], 
+             GrayLevel[0]}], 46], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           47], 
+             GrayLevel[0]}], 47], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           48], 
+             GrayLevel[0]}], 48], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           49], 
+             GrayLevel[0]}], 49], 
           Inset[
            Graphics[{
              Hue[0.6142719099991583, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
-           50]}, {
+             GrayLevel[0]}], 50]}, {
           Hue[0.8503398874989481, 0.6, 0.6], 
           GrayLevel[0], 
           Inset[
            Graphics[{
              Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 51], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 52], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 53], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 54], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 55], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 56], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 57], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 58], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 59], 
+          Inset[
+           Graphics[{
+             Hue[0.8503398874989481, 0.6, 0.6], 
+             GrayLevel[0]}], 60]}, {
+          Hue[0.08640786499873876, 0.6, 0.6], 
+          GrayLevel[0], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 101], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 102], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 103], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 104], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 105], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 106], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 107], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 108], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 109], 
+          Inset[
+           Graphics[{
+             Hue[0.08640786499873876, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 110]}, {
+          Hue[0.3224758424985268, 0.6, 0.6], 
+          GrayLevel[0], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           111], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           112], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           113], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           114], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           115], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           116], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           117], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           118], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           119], 
+          Inset[
+           Graphics[{
+             Hue[0.3224758424985268, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}]}, ImageSize -> 8], 
+           120]}, {
+          Hue[0.5585438199983166, 0.6, 0.6], 
+          GrayLevel[0], 
+          Inset[
+           Graphics[{
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3040,31 +3277,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 51], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 121], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
-             GrayLevel[0], 
-             GrayLevel[0], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
-             
-             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
-                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
-               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
-                Rational[1, 4] (2 - 2^Rational[1, 2])}}], 
-             Line[{{
-                Rational[1, 2], 0}, {
-                Rational[1, 2], 1}}], 
-             Line[{{0, 
-                Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 52], 
-          Inset[
-           Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3082,10 +3298,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 53], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 122], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3103,10 +3319,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 54], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 123], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3124,10 +3340,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 55], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 124], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3145,10 +3361,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 56], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 125], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3166,10 +3382,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 57], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 126], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3187,10 +3403,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 58], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 127], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3208,10 +3424,10 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 59], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 128], 
           Inset[
            Graphics[{
-             Hue[0.8503398874989481, 0.6, 0.6], 
+             Hue[0.5585438199983166, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
              
@@ -3229,69 +3445,90 @@ TSZ8uQlMfwCx6Bdg
                 Rational[1, 2], 1}}], 
              Line[{{0, 
                 Rational[1, 2]}, {1, 
-                Rational[1, 2]}}]}, ImageSize -> 8], 60]}, {
-          Hue[0.08640786499873876, 0.6, 0.6], 
+                Rational[1, 2]}}]}, ImageSize -> 8], 129], 
+          Inset[
+           Graphics[{
+             Hue[0.5585438199983166, 0.6, 0.6], 
+             GrayLevel[0], 
+             GrayLevel[0], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}}], 
+             
+             Line[{{Rational[1, 4] (2 - 2^Rational[1, 2]), 1 + 
+                Rational[1, 4] (-2 + 2^Rational[1, 2])}, {
+               1 + Rational[1, 4] (-2 + 2^Rational[1, 2]), 
+                Rational[1, 4] (2 - 2^Rational[1, 2])}}], 
+             Line[{{
+                Rational[1, 2], 0}, {
+                Rational[1, 2], 1}}], 
+             Line[{{0, 
+                Rational[1, 2]}, {1, 
+                Rational[1, 2]}}]}, ImageSize -> 8], 130]}, {
+          Hue[0.7946117974981064, 0.6, 0.6], 
           GrayLevel[0], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 61], 
+             Circle[{0, 0}]}, ImageSize -> 8], 91], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 62], 
+             Circle[{0, 0}]}, ImageSize -> 8], 92], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 63], 
+             Circle[{0, 0}]}, ImageSize -> 8], 93], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 64], 
+             Circle[{0, 0}]}, ImageSize -> 8], 94], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 65], 
+             Circle[{0, 0}]}, ImageSize -> 8], 95], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 66], 
+             Circle[{0, 0}]}, ImageSize -> 8], 96], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 67], 
+             Circle[{0, 0}]}, ImageSize -> 8], 97], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 68], 
+             Circle[{0, 0}]}, ImageSize -> 8], 98], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 69], 
+             Circle[{0, 0}]}, ImageSize -> 8], 99], 
           Inset[
            Graphics[{
-             Hue[0.08640786499873876, 0.6, 0.6], 
+             Hue[0.7946117974981064, 0.6, 0.6], 
              GrayLevel[0], 
              GrayLevel[0], 
-             Circle[{0, 0}]}, ImageSize -> 8], 70]}, {}}}], {}}, {
+             Circle[{0, 0}]}, ImageSize -> 8], 100]}, {}}}], {}}, {
      FrameLabel -> {{"Error", None}, {"k", None}}, 
       Ticks -> {{{0., 1}, {1.6094379124341003`, 5}, {2.302585092994046, 10}, {
          3.912023005428146, 50}, {4.605170185988092, 100}, {
@@ -3481,8 +3718,8 @@ TSZ8uQlMfwCx6Bdg
             Thickness[0.001]}}}}}, 
       AxesOrigin -> {0.6931471805599453, -5.1249677880670506`}, 
       PlotRange -> {{0.6931471805599453, 
-       6.907755278982137}, {-5.1249677880670506`, -0.1875704573197542}}, 
-      AspectRatio -> 1, Axes -> True, AxesOrigin -> {1., 0}, 
+       6.907755278982137}, {-5.1249677880670506`, 0.}}, AspectRatio -> 1, 
+      Axes -> True, AxesOrigin -> {1., 0}, 
       CoordinatesToolOptions -> {"DisplayFunction" -> ({
           Exp[
            Part[#, 1]], 
@@ -3493,10 +3730,10 @@ TSZ8uQlMfwCx6Bdg
           Exp[
            Part[#, 2]]}& )}, Frame -> True, FrameLabel -> {"k", "Error"}, 
       ImageSize -> 500, Method -> {}, 
-      PlotRange -> {{0.6931471805599453, All}, All}, PlotRangeClipping -> 
+      PlotRange -> {{0.6931471805599453, All}, {All, 0.}}, PlotRangeClipping -> 
       True, PlotRangePadding -> {{None, 
-         Scaled[0.02]}, 
-        Scaled[0.02]}}], {
+         Scaled[0.02]}, {
+         Scaled[0.02], None}}}], {
      Placed[
       Unevaluated[
        Grid[{{
@@ -3519,7 +3756,8 @@ TSZ8uQlMfwCx6Bdg
             Line[{{0, 0}, {10, 0}}]}, ImageSize -> 24], 
           "\!\(\*SubscriptBox[\(\[Epsilon]\), \(max\)]\)(k,10.)"}, {
           Graphics[{
-            GrayLevel[0], 
+            Directive[
+             GrayLevel[0]], 
             Line[{{0, 0}, {10, 0}}], 
             Inset[
              Graphics[{
@@ -3532,7 +3770,8 @@ TSZ8uQlMfwCx6Bdg
                   Rational[1, 2]}}]}, ImageSize -> 8], {5, 0}]}, ImageSize -> 
            24], "\!\(\*SubscriptBox[\(\[Epsilon]\), \(BE\)]\)(k,0)"}, {
           Graphics[{
-            GrayLevel[0], 
+            Directive[
+             GrayLevel[0]], 
             Line[{{0, 0}, {10, 0}}], 
             Inset[
              Graphics[{
@@ -3550,7 +3789,8 @@ TSZ8uQlMfwCx6Bdg
               8], {5, 0}]}, ImageSize -> 24], 
           "\!\(\*SubscriptBox[\(\[Epsilon]\), \(BE\)]\)(k,2.0)"}, {
           Graphics[{
-            GrayLevel[0], 
+            Directive[
+             GrayLevel[0]], 
             Line[{{0, 0}, {10, 0}}], 
             Inset[
              Graphics[{
@@ -3677,14 +3917,26 @@ TSZ8uQlMfwCx6Bdg
    3.580730698619318*^9}, {3.580734269608328*^9, 3.580734335017272*^9}, {
    3.580734460777018*^9, 3.580734487082593*^9}, {3.580734553710771*^9, 
    3.580734605880898*^9}, {3.581668795026641*^9, 3.581668809784107*^9}, 
-   3.581668848991034*^9}]
+   3.581668848991034*^9, 3.58546372112398*^9, 3.585463906621726*^9, 
+   3.5854639615604773`*^9, {3.585464252651916*^9, 3.585464261912137*^9}, {
+   3.585465956238847*^9, 3.585465966458878*^9}, 3.585466005040986*^9, 
+   3.585466168703652*^9, 3.585469046849209*^9, 3.58546923195852*^9, 
+   3.585469422485458*^9, 3.585469600120001*^9, {3.585470490609774*^9, 
+   3.585470502203742*^9}, 3.585470581282402*^9, 3.5854794645070333`*^9, {
+   3.5854795136122026`*^9, 3.585479544509203*^9}, 3.585479585848525*^9, {
+   3.5854797853644648`*^9, 3.585479821008759*^9}, {3.585479962470997*^9, 
+   3.58547996766934*^9}, 3.585480010068281*^9, 3.585480076277269*^9, {
+   3.585480110823822*^9, 3.585480142320217*^9}, {3.585480208416737*^9, 
+   3.585480217228435*^9}, {3.5854802755585117`*^9, 3.585480280085792*^9}, 
+   3.585480311204401*^9, 3.5854803525038137`*^9, 3.5854805262380257`*^9, 
+   3.585557036435389*^9, 3.585650743061347*^9, 3.5856508683991537`*^9}]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{839, 1017},
-WindowMargins->{{Automatic, -9}, {-9, Automatic}},
+WindowSize->{840, 1018},
+WindowMargins->{{Automatic, 840}, {0, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -3725,35 +3977,35 @@ Cell[4963, 135, 198, 3, 81, "Section"],
 Cell[5164, 140, 452, 6, 31, "Text"],
 Cell[5619, 148, 8949, 131, 55, "Input"],
 Cell[14571, 281, 153, 3, 31, "Text"],
-Cell[14727, 286, 3164, 44, 32, "Input"]
+Cell[14727, 286, 3360, 47, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[17928, 335, 319, 4, 81, "Section"],
-Cell[18250, 341, 201, 3, 31, "Text"],
-Cell[18454, 346, 2970, 71, 262, "Input"],
-Cell[21427, 419, 515, 11, 55, "Input"],
-Cell[21945, 432, 233, 6, 64, "Input"],
-Cell[22181, 440, 977, 22, 77, "Input"],
-Cell[23161, 464, 804, 19, 77, "Input"],
-Cell[23968, 485, 522, 14, 77, "Input"],
-Cell[24493, 501, 443, 10, 32, "Input"]
+Cell[18124, 338, 319, 4, 81, "Section"],
+Cell[18446, 344, 201, 3, 31, "Text"],
+Cell[18650, 349, 2970, 71, 262, "Input"],
+Cell[21623, 422, 690, 14, 77, "Input"],
+Cell[22316, 438, 233, 6, 64, "Input"],
+Cell[22552, 446, 977, 22, 77, "Input"],
+Cell[23532, 470, 804, 19, 77, "Input"],
+Cell[24339, 491, 522, 14, 77, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24973, 516, 143, 2, 81, "Section"],
+Cell[24898, 510, 143, 2, 81, "Section"],
 Cell[CellGroupData[{
-Cell[25141, 522, 494, 8, 45, "Subsection"],
-Cell[25638, 532, 619, 12, 32, "Input"],
-Cell[26260, 546, 1119, 21, 32, "Input"],
-Cell[27382, 569, 163, 3, 32, "Input"],
-Cell[27548, 574, 1168, 24, 77, "Input"],
-Cell[28719, 600, 334, 8, 32, "Input"],
-Cell[29056, 610, 1908, 32, 121, "Input"],
-Cell[30967, 644, 9139, 207, 627, "Input"],
-Cell[40109, 853, 709, 17, 32, "Input"],
-Cell[40821, 872, 697, 13, 32, "Input"],
+Cell[25066, 516, 494, 8, 45, "Subsection"],
+Cell[25563, 526, 619, 12, 32, "Input"],
+Cell[26185, 540, 1119, 21, 32, "Input"],
+Cell[27307, 563, 163, 3, 32, "Input"],
+Cell[27473, 568, 1825, 39, 121, "Input"],
+Cell[29301, 609, 334, 8, 32, "Input"],
+Cell[29638, 619, 2360, 42, 143, "Input"],
+Cell[32001, 663, 656, 18, 55, "Input"],
+Cell[32660, 683, 9279, 206, 605, "Input"],
+Cell[41942, 891, 709, 17, 32, "Input"],
+Cell[42654, 910, 697, 13, 32, "Input"],
 Cell[CellGroupData[{
-Cell[41543, 889, 2400, 45, 121, "Input"],
-Cell[43946, 936, 129204, 2743, 395, "Output"]
+Cell[43376, 927, 2945, 56, 165, "Input"],
+Cell[46324, 985, 136414, 2946, 395, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
