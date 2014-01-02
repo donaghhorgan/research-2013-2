@@ -56,7 +56,7 @@
 (*Non-local packages*)
 
 
-packagesDirectory = Evaluate[ToFileName["/home/donagh/PhD/Mathematica/Main"]];
+packagesDirectory = Evaluate[ToFileName["./packages/"]];
 
 
 AppendTo[$Path, packagesDirectory];
@@ -82,8 +82,8 @@ Get["plots.m"];
 ParallelEvaluate[Get["plots.m"]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*EPS export directory*)
 
 
-exportDirectory = FileNameJoin[{FileNameJoin[{HomeDirectory[],"PhD/Papers"}],FileNameTake[NotebookDirectory[], -1],"figures"}];
+exportDirectory = ToFileName["./figures/"];
