@@ -86,4 +86,4 @@ ParallelEvaluate[Get["plots.m"]];
 (*EPS export directory*)
 
 
-exportDirectory = ToFileName["./figures/"];
+exportDirectory = ToFileName["./"];
